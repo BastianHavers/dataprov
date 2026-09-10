@@ -11,6 +11,8 @@ import argparse
 import sys
 from pathlib import Path
 
+from dataprov import __version__
+
 
 def main():
     """Main entry point for the dataprov-visualize CLI tool."""
@@ -28,6 +30,10 @@ Examples:
   # Generate SVG
   dataprov-visualize provenance.json | dot -Tsvg -o provenance.svg
         """,
+    )
+
+    parser.add_argument(
+        "--version", action="version", version=f"%(prog)s {__version__}"
     )
 
     parser.add_argument("input", help="Path to provenance JSON file")

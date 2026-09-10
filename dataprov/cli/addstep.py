@@ -57,7 +57,7 @@ import argparse
 import sys
 from pathlib import Path
 
-from dataprov import ProvenanceChain
+from dataprov import ProvenanceChain, __version__
 
 
 def main():
@@ -88,6 +88,10 @@ Examples:
     --outputs merged.csv --output-formats CSV \\
     --input-provenance-files a_prov.json none
         """,
+    )
+
+    parser.add_argument(
+        "--version", action="version", version=f"%(prog)s {__version__}"
     )
 
     # Required arguments

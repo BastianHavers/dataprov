@@ -12,6 +12,8 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
+from dataprov import __version__
+
 
 def _render_nested_bundle(bundle_id: str, bundle_content: dict) -> str:
     """Render a nested provenance bundle as HTML.
@@ -556,6 +558,10 @@ def main():
 Example:
   dataprov-report provenance.json -o report.html
         """,
+    )
+
+    parser.add_argument(
+        "--version", action="version", version=f"%(prog)s {__version__}"
     )
 
     parser.add_argument("input", help="Path to provenance JSON file")
