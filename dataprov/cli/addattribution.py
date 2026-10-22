@@ -38,7 +38,7 @@ import argparse
 import sys
 from pathlib import Path
 
-from dataprov import ProvenanceChain
+from dataprov import ProvenanceChain, __version__
 
 
 def main():
@@ -64,6 +64,10 @@ Examples:
   dataprov-add-attribution -p provenance.json -i reference/*.csv \\
     --agent-name "curator_team" --role "data_curator"
         """,
+    )
+
+    parser.add_argument(
+        "--version", action="version", version=f"%(prog)s {__version__}"
     )
 
     # Required arguments

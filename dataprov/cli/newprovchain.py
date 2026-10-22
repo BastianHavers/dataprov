@@ -30,7 +30,7 @@ import argparse
 import sys
 from pathlib import Path
 
-from dataprov import ProvenanceChain
+from dataprov import ProvenanceChain, __version__
 
 
 def main():
@@ -49,6 +49,10 @@ Examples:
   # Conceptual source (no verification)
   dataprov-new -s "Raw_Data_Batch_001" -o prov.json -i batch_001 --no-verify
         """,
+    )
+
+    parser.add_argument(
+        "--version", action="version", version=f"%(prog)s {__version__}"
     )
 
     # All arguments as flags
